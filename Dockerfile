@@ -6,7 +6,7 @@ COPY package*.json ./
 # Export NODE_OPTIONS with --openssl-legacy-provider
 ENV NODE_OPTIONS="--openssl-legacy-provider"
 
-RUN npm install
+RUN NODE_ENV=development npm i
 COPY . .
 
 RUN npm run generate
