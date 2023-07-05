@@ -8,7 +8,7 @@ COPY . .
 # Export NODE_OPTIONS with --openssl-legacy-provider
 ENV NODE_OPTIONS="--openssl-legacy-provider"
 
-RUN npm run build
+RUN npm run generate
 
 # Stage 2: Serve Nuxt.js app with Nginx
 FROM nginx:stable-alpine as production-stage
