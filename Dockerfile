@@ -4,6 +4,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+
+# Export NODE_OPTIONS with --openssl-legacy-provider
+ENV NODE_OPTIONS="--openssl-legacy-provider"
+
 RUN npm run build
 
 # Stage 2: Serve Nuxt.js app with Nginx
