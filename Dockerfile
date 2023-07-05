@@ -2,12 +2,12 @@
 FROM node:14.17.0 as build-stage
 WORKDIR /app
 COPY package*.json ./
-ENV NODE_OPTIONS="--openssl-legacy-provider"
-RUN npm install -f
-COPY . .
 
 # Export NODE_OPTIONS with --openssl-legacy-provider
 ENV NODE_OPTIONS="--openssl-legacy-provider"
+
+RUN npm install
+COPY . .
 
 RUN npm run generate
 
